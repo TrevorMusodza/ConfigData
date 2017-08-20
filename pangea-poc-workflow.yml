@@ -1,47 +1,39 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/prototype
-    username: trade
-    password: postgres
-    name: trade
-    driver-class-name: org.postgresql.Driver
-    type: com.zaxxer.hikari.HikariDataSource
-    hikari:
-      connection-timeout: 30000
-      maximum-pool-size: 20
-      idleTimeout: 10000
-  session:
-    store-type: none
-  jackson:
-    mapper:
-        default-view-inclusion: true
-    deserialization:
-      fail-on-unknown-properties: true
-      # address the bottom property as a system wide date format change story
-      date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
-
-#server.
-#port: ${port:9090}
-
 config:
-  applicationVersion: 0.1-alpha
-  env: WORKSTATION
-  buildNumber: 0.1.0
-  jenBuildId: buildIdPH
-  jenBuildNum: buildNumPH
-  gitCommit: gitCommPH
-  developerTesting: true
-  endPointLog: true
-
-pangea:
-  scheduler:
-    job:
-      cron: 0 */1 * * * ?
-
-multipart:
-  max-file-size: 100MB
-  max-request-size: 100MB
-
+    applicationVersion: 0.1-alpha
+    buildNumber: 0.1.0
+    developerTesting: true
+    endPointLog: true
+    env: WORKSTATION
+    gitCommit: gitCommPH
+    jenBuildId: buildIdPH
+    jenBuildNum: buildNumPH
 management:
-  security:
-    enabled: false
+    security:
+        enabled: false
+multipart:
+    max-file-size: 100MB
+    max-request-size: 100MB
+pangea:
+    scheduler:
+        job:
+            cron: 0 */1 * * * ?
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        hikari:
+            connection-timeout: 30000
+            idleTimeout: 10000
+            maximum-pool-size: 20
+        name: trade
+        password: postgres
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://localhost:5432/prototype
+        username: trade
+    jackson:
+        date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+        deserialization:
+            fail-on-unknown-properties: true
+        mapper:
+            default-view-inclusion: true
+    session:
+        store-type: none
