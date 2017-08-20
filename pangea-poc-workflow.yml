@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/prototype
-    username: ${POSTGRESQL_USER}
-    password: ${POSTGRESQL_PASSWORD}
+    username: trade
+    password: postgres
     name: trade
     driver-class-name: org.postgresql.Driver
     type: com.zaxxer.hikari.HikariDataSource
