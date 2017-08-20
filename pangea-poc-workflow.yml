@@ -10,6 +10,15 @@ spring:
       connection-timeout: 30000
       maximum-pool-size: 20
       idleTimeout: 10000
+  session:
+    store-type: none
+  jackson:
+    mapper:
+        default-view-inclusion: true
+    deserialization:
+      fail-on-unknown-properties: true
+      # address the bottom property as a system wide date format change story
+      date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
 
 #server.
 #port: ${port:9090}
@@ -22,27 +31,12 @@ config:
   jenBuildNum: buildNumPH
   gitCommit: gitCommPH
   developerTesting: true
-
-spring:
-  jackson:
-    mapper:
-        default-view-inclusion: true
-    deserialization:
-      fail-on-unknown-properties: true
-      # address the bottom property as a system wide date format change story
-      date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
-
-spring:
-  session:
-    store-type: none
+  endPointLog: true
 
 pangea:
   scheduler:
     job:
-      cron=0 */1 * * * ?
-
-config:
-  endPointLog=true
+      cron: 0 */1 * * * ?
 
 multipart:
   max-file-size: 100MB
@@ -50,4 +44,4 @@ multipart:
 
 management:
   security:
-    enabled=false
+    enabled: false
