@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/prototype
+    username: ${POSTGRESQL_USER}
+    password: ${POSTGRESQL_PASSWORD}
+    name: trade
+    driver-class-name: org.postgresql.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 20
+      idleTimeout: 10000
+
+#server.
+#port: ${port:9090}
+
+config:
+  applicationVersion: 0.1-alpha
+  env: WORKSTATION
+  buildNumber: 0.1.0
+  jenBuildId: buildIdPH
+  jenBuildNum: buildNumPH
+  gitCommit: gitCommPH
+  developerTesting: true
+
+spring:
+  jackson:
+    mapper:
+        default-view-inclusion: true
+    deserialization:
+      fail-on-unknown-properties: true
+      # address the bottom property as a system wide date format change story
+      date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+
+spring:
+  session:
+    store-type: none
+
+pangea:
+  scheduler:
+    job:
+      cron=0 */1 * * * ?
+
+config:
+  endPointLog=true
+
+multipart:
+  max-file-size: 100MB
+  max-request-size: 100MB
+
+management:
+  security:
+    enabled=false
