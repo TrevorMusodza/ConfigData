@@ -30,7 +30,7 @@ spring:
         url: jdbc:postgresql://localhost:5432/prototype
         username: trade
     jackson:
-        date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+        #date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
         deserialization:
             fail-on-unknown-properties: true
         mapper:
