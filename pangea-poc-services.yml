@@ -1,0 +1,94 @@
+activemq:
+    port: ${ACTIVEMQ_PORT:61616}
+    url: ${ACTIVEMQ_URL:tcp://localhost}
+channel:
+    integration:
+        enabled: false
+    translate:
+        pdf: true
+    url: http://tradecoreapidev.azurewebsites.net
+config:
+    applicationVersion: 0.1-alpha
+    buildNumber: 0.1.0
+    developerTesting: true
+    endPointLog: true
+    env: WORKSTATION
+    gitCommit: gitCommPH
+    jenBuildId: buildIdPH
+    jenBuildNum: buildNumPH
+endpoints:
+    logfile:
+        enabled: true
+    restart:
+        enabled: true
+flyway:
+    clean-on-validation-error: true
+    out-of-order: false
+    password: sa
+    placeholder-prefix: $[[
+    placeholder-suffix: ']]'
+    schemas: public
+    url: jdbc:postgresql://localhost:5432/prototype
+    user: postgres
+jms:
+    broker:
+        name: jms-broker-pangea
+logging:
+    path: .
+management:
+    port: ${port:8081}
+    security:
+        enabled: false
+pangea:
+    scheduler:
+        follow:
+            up:
+                cron: 0 0/5 * * * ?
+security:
+    basic:
+        enabled: false
+server:
+    port: ${port:8081}
+    session:
+        cookie:
+            max-age: 10
+        timeout: 10
+        tracking-modes: cookie
+    tomcat:
+        max-connections: 50
+        max-threads: 25
+        min-spare-threads: 10
+spring:
+    data:
+        jpa:
+            repositories:
+                enabled: true
+    datasource:
+        hikari:
+            connection-timeout: 30000
+            idleTimeout: 10000
+            maximum-pool-size: 20
+        initialize: false
+        name: prototype
+        password: sa
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://localhost:5432/prototype
+        username: postgres
+    jackson:
+        date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+    jpa:
+        generate-ddl: true
+        hibernate:
+            ddl-auto: update
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+            naming:
+                implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        show-sql: false
+    redis:
+        host: localhost
+        port: 6379
+    session:
+        store-type: none
+workflow:
+    url: http://localhost:9090
