@@ -1,0 +1,23 @@
+config:
+    applicationTitle: ${config.applicationTitleBase}-(default)
+    applicationTitleBase: Pangea
+    applicationVersion: 0.1-alpha
+    baseServicesUrl: http://localhost:8081
+    baseWorkFlowUrl: http://localhost:9090
+    buildNumber: 0.1.0
+    developerTesting: true
+    env: WORKSTATION
+    gitCommit: 0a4558cb705245181d50c89590edcc36921297e7
+    jenBuildId: 2016-12-23_23-59-59
+    jenBuildNum: XX
+management:
+    port: ${port:8080}
+security:
+    basic:
+        enabled: false
+server:
+    compression:
+        enabled: true
+        mime-types: application/json,application/xml,text/html,text/xml,text/plain,text/javascript,application/javascript
+        min-response-size: 100
+    port: ${port:8080}
